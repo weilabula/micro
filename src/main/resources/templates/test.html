@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Query表单提交验证</title>
+     <script src="Jquery/jquery-3.4.1.min.js" type="text/javascript"></script>
+     <script src="Jquery/jquery.form.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="div1">
+    <form id="form1" method="post">
+        <p>
+            <span>
+                姓名：
+            </span>
+            <input type="text" name="username" />
+        </p>
+        <p>
+            <span>
+                密码：
+            </span>
+            <input type="text" name="password" />
+        </p>
+        <p>
+            <span>
+                国家：
+            </span>
+            <input type="checkbox" name="country" value="1" />蜀国
+            <input type="checkbox" name="country01" value="2" />魏国
+            <input type="checkbox" name="country02" value="3" />吴国
+        </p>
+        <p><input type="submit" value="确认" /></p>
+    </form>
+</div>
+</body>
+<script>
+        $(function () {
+
+            $(":submit").click(function () {
+                var options = {
+                url: "userlogin",
+                success: function (data) {
+                    var data=JSON.parse(data);
+                alert(data);
+                }
+                };
+                $("#form1").ajaxForm(options);
+            })
+        })
+        </script>
+</html>
